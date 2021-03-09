@@ -21,7 +21,7 @@ ruby2.6.5  rails 5.2.4
 * 運動日誌機能
 * ゲストログイン機能
 
-**カタログ**
+**カタログ**  
 https://docs.google.com/spreadsheets/d/1oaEcWs2byFl8ZVPVClZnS0f4u-XhBerhAd14ly8Rlhk/edit#gid=0
 
 **table定義、ER図**
