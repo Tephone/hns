@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :which_post?, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! #, only: [:new, :create, :edit, :update, :destroy]
+  before_action :can_do_only_by_myself, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -45,7 +46,14 @@ class PostsController < ApplicationController
   def which_post?
     @post = Post.find(params[:id])
   end
+
   def permitted_parameter
     params.require(:post).permit(:content, :image, :image_cache, :user_id)
+  end
+
+  def can_do_only_by_myself
+    unless current_user == @post.user
+      render :show
+    end
   end
 end

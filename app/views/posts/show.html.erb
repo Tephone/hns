@@ -8,10 +8,12 @@
   <%= image_tag(@post.image.url) if @post.image.present? %>
 </p>
 
-<%= link_to '編集', edit_post_path(@post.id) %>
-<%= link_to '削除', post_path(@post.id), method: :delete, data: {confirm: "投稿を削除してもよろしいでしょうか？"} %>
+<% if current_user == @post.user %>
+  <%= link_to '編集', edit_post_path(@post.id) %>
+  <%= link_to '削除', post_path(@post.id), method: :delete, data: {confirm: "投稿を削除してもよろしいでしょうか？"} %>
+<% end %>
 
-<% unless @post.user_id == current_user.id %>
+<% unless current_user == @post.user %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入りを解除する', favorite_path(id: @favorite.id), method: :delete %>
   <% else %>
