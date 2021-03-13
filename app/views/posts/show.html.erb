@@ -1,0 +1,10 @@
+<p> 
+  <%= @post.user.name %>さんの投稿
+</p>
+<p> 
+  <%= @post.content %>
+</p>
+<p> 
+  <%= image_tag(@post.image.url) if @post.image.present? %>
+</p>
+<%= link_to '戻る', posts_path %>

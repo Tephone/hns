@@ -5,7 +5,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= image_tag resource.image.url %><br/>
+    <%= image_tag resource.image.url if resource.image.present? %><br/>
     <%= f.label :image %><br/>
     <%= f.file_field :image %>
   </div>
