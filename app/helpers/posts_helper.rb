@@ -3,7 +3,7 @@ module PostsHelper
     if action_name == "new"
         posts_path
     elsif action_name == "edit"
-        blog_path
+        post_path
     end
   end
 end
