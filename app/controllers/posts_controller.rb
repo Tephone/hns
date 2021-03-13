@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path, notice: '投稿しました！'
     else
       render :new
     end
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(permitted_parameter)
-      redirect_to posts_path
+      redirect_to posts_path, notice: '編集しました！'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, notice: '削除しました！'
   end
 
   private
