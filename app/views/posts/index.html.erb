@@ -1,2 +1,8 @@
 <h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%= link_to '新しく投稿する', new_post_path%><br>
+<% @posts.each do |post|%>
+    <%= post.content%><br>
+    <%= image_tag(post.image.url) if post.image.present? %><br>
+<%end%>
+
+<%= link_to 'マイページ', edit_user_registration_path(current_user.id) if current_user.name != nil%> 
