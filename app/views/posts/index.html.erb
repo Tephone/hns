@@ -1,0 +1,9 @@
+<h1>Posts#index</h1>
+<%= link_to '新しく投稿する', new_post_path%><br>
+<% @posts.each do |post|%>
+  <%= post.content%><br>
+  <%= image_tag(post.image.url) if post.image.present? %><br>
+  <%= link_to '詳細', post_path(post.id) %><br>
+<%end%>
+<%= link_to 'マイページ', edit_user_registration_path(current_user.id) if current_user.name != 'gust' %> 
+

@@ -1,0 +1,38 @@
+<p> 
+  <%= @post.user.name %>さんの投稿
+</p>
+<p> 
+  <%= @post.content %>
+</p>
+<p> 
+  <%= image_tag(@post.image.url) if @post.image.present? %>
+</p>
+
+<% if current_user == @post.user %>
+  <%= link_to '編集', edit_post_path(@post.id) %>
+  <%= link_to '削除', post_path(@post.id), method: :delete, data: {confirm: "投稿を削除してもよろしいでしょうか？"} %>
+<% end %>
+
+<% unless current_user == @post.user %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入りを解除する', favorite_path(id: @favorite.id), method: :delete %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post %>
+  <% end %>
+<% end %>
+<br>
+
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  </div>
+  <p>コメント一覧（ここから下の内容が重要）</p>
+  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+  <div id="comments_area">
+    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+  </div>
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+</div>
+
+<%= link_to '戻る', posts_path %>
