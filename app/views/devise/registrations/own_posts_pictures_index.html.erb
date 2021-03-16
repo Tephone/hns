@@ -1,0 +1,4 @@
+<p>投稿画像一覧</p>
+<% @posts.each do |post|%>
+  <%= image_tag(post.image.url) if post.image.present?%>
+<% end %>

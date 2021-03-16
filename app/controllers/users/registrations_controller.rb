@@ -3,6 +3,20 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  def own_posts_index
+    @user = current_user
+    @posts = @user.posts
+  end
+
+  def own_posts_pictures_index
+    @user = current_user
+    @posts = @user.posts
+  end
+
+  def favorites_index
+    @user = current_user
+    @favorites = @user.favorites
+  end
 
   # GET /resource/sign_up
   # def new
