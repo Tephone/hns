@@ -1,10 +1,11 @@
 class HorseDiariesController < ApplicationController
   before_action :which_horse_diary?, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  PER = 5
   def index 
-    @horse_diaries = HorseDiary.all
+    @horse_diaries = HorseDiary.page(params[:page]).per(PER)
     @q = HorseDiary.ransack(params[:q])
-    @horse_diaries = @q.result(distinct: true)
+    @horse_diaries = @q.result(distinct: true).page(params[:page]).per(PER)
   end
 
   def show
