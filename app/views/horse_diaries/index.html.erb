@@ -7,9 +7,14 @@
   <%= f.submit "検索" %>
 <% end %>
 <% @horse_diaries.each do |diary|%>
-  <%= diary.content%><br>
-  <%= link_to '詳細', horse_diary_path(diary.id) %>
-  <%= link_to '編集', edit_horse_diary_path(diary.id) %>
-  <%= link_to '削除', horse_diary_path(diary.id), method: :delete, data: {confirm: '投稿を削除してもよろしいでしょうか？'} %><br>
+  <div class = "balloon1">
+    <%= link_to (diary.content), horse_diary_path(diary.id) %><br>
+  </div>
+  <br>
+  <%#= link_to '詳細', horse_diary_path(diary.id) %>
+  <%#= link_to '編集', edit_horse_diary_path(diary.id) %>
+  <%#= link_to '削除', horse_diary_path(diary.id), method: :delete, data: {confirm: '投稿を削除してもよろしいでしょうか？'} %>
 <%end%>
-<%= paginate @horse_diaries %>
+<div class = 'pagination' >
+      <%= paginate @horse_diaries %>
+</div>

@@ -1,9 +1,13 @@
-<h1>Posts#index</h1>
+<h1>Whisper</h1>
 <%= link_to '新しく投稿する', new_post_path%><br>
 <% @posts.each do |post|%>
-  <%= post.content%><br>
-  <%= image_tag(post.image.url) if post.image.present? %><br>
-  <%= link_to '詳細', post_path(post.id) %><br>
+  <div>
+    <p><%= link_to (post.content), post_path(post.id)%><br></p>
+    <p><%= image_tag(post.image.url) if post.image.present?%></p>
+    <p class = "hr"></p>
+  </div>
+  
+  <%#= link_to '詳細', post_path(post.id) %>
 <%end%>
 <%= link_to 'マイページ', edit_user_registration_path(current_user.id) if current_user.name != 'gust' %> 
 
