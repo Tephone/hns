@@ -3,6 +3,8 @@ class HorseDiariesController < ApplicationController
   before_action :authenticate_user!
   def index 
     @horse_diaries = HorseDiary.all
+    @q = HorseDiary.ransack(params[:q])
+    @horse_diaries = @q.result(distinct: true)
   end
 
   def show
@@ -35,7 +37,6 @@ class HorseDiariesController < ApplicationController
 
   def destroy
     @horse_diary.destroy
-    puts "@@@@@@@@@@@@@@"
     redirect_to horse_diaries_path, notice: '削除しました'
   end
   private
