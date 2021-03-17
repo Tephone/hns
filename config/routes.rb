@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     get 'users/own_posts_pictures', to: 'users/registrations#own_posts_pictures_index'
   end
   resources :favorites, only: [:create, :destroy]
+  resources :horse_diaries
 
 end
