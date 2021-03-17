@@ -10,21 +10,12 @@
   </head>
 
   <body>
-    <div class="menu">
-      <div class="title">MENU</div>
-      <ul class="nav">
-        <li><%= link_to 'My page', edit_user_registration_path(current_user.id) %></li>
-        <li><%= link_to 'Whisper', posts_path %></li>
-        <li><%= link_to '乗馬日記', horse_diaries_path %></li>
-      </ul>
-    </div>
-
     <% if user_signed_in? %>
       <%= link_to "post投稿", posts_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
+      <%= link_to "ログインaaaa", new_user_session_path %>
     <% end %>
 
     <% if notice %>
@@ -33,8 +24,7 @@
     <% if alert %>
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
-    <div class="col text-center" >
-      <%= yield %>
-    </div>
+
+    <%= yield %>
   </body>
 </html>
