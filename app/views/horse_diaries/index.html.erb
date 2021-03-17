@@ -2,5 +2,7 @@
 <%= link_to '新しく投稿する', new_horse_diary_path%><br>
 <% @horse_diaries.each do |diary|%>
   <%= diary.content%><br>
-  <%#= link_to '詳細', horse_diary_path(horse_diary.id) %><br>
+  <%= link_to '詳細', horse_diary_path(diary.id) %>
+  <%= link_to '編集', edit_horse_diary_path(diary.id) %>
+  <%= link_to '削除', horse_diary_path(diary.id), method: :delete, data: {confirm: '投稿を削除してもよろしいでしょうか？'} %><br>
 <%end%>
