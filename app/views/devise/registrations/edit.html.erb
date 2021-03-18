@@ -6,23 +6,23 @@
   <% unless current_user.name == 'gust'%>
     <div class="field">
       <%= image_tag resource.image.url, class: 'rounded-circle' if resource.image.present? %><br/>
-      <%= f.label :image %><br/>
+      <%#= f.label :image %><br/>
       <%= f.file_field :image %>
     </div>
   
     <div class="field">
-      <%= f.label :name %><br/>
-      <%= f.text_field :name %>
+      <%= f.label '名前' %><br/>
+      <%= f.text_field :name %><br><br>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label 'e-mail' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+    <% end %><br>
 
 <!--
   <div class="field">
@@ -40,12 +40,13 @@
   </div>
 -->
     <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.label 'パスワードを入力してください' %><i>(確認用)</i><br>
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div> 
+    <br>
 
     <div class="actions">
-      <%= f.submit "Update"%>
+      <%= f.submit "更新する"%>
     </div>
   <% end %>
   <% if current_user.name == 'gust'%>
@@ -61,7 +62,7 @@
 
 <%= link_to "Back", :back %>
 -->
-<%= link_to 'お気に入り一覧', users_favorites_path %>
-<%= link_to '自身の投稿一覧', users_own_posts_path %>
-<%= link_to '投稿画像一覧', users_own_posts_pictures_path %>
-<%= link_to '投稿一覧画面', posts_path %>
+<%= link_to 'お気に入り一覧', users_favorites_path, class: 'btn-border-bottom' %> &nbsp;
+<%= link_to '自身の投稿一覧', users_own_posts_path, class: 'btn-border-bottom' %> &nbsp;
+<%= link_to '投稿画像一覧', users_own_posts_pictures_path, class: 'btn-border-bottom' %>
+<%#= link_to '投稿一覧画面', posts_path %>

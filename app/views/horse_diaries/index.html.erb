@@ -1,10 +1,11 @@
 <br>
-<%= link_to '新しく投稿する', new_horse_diary_path%><br>
+<%= link_to '日記を書く', new_horse_diary_path, class: 'btn-border-bottom'%><br>
+
 <%= search_form_for @search do |f| %>
-  <%= f.label :content, "Keyword" %><br>
+  <%#= f.label :content, "Keyword" %><br>
   <%= f.search_field :content_cont %>
 
-  <%= f.submit "検索" %>
+  <%= f.submit "🔎" %>
 <% end %>
 <% @horse_diaries.each do |diary|%>
 <%# binding.irb %>

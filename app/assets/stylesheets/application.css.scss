@@ -15,6 +15,91 @@
  *= require_self
  */
 
+//文字の色
+
+
+//body全体
+.bkg_color{
+  background-color: whitesmoke;
+  z-index: 0;
+}
+
+//body全体(sessions)
+.bkg_color2 {
+  // background: linear-gradient(-100deg, rgba(300, 180, 224, 0.8), rgba(199, 123, 170, 0.8)),
+  // url(http://www.webcreatorbox.com/sample/images/bg-cherrybrossam.jpg);
+  // background-size: cover;
+
+  background-image: url(https://image.freepik.com/free-photo/horse-walking_72229-42.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bkg_color2::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(245, 245, 245, 0.561);
+  }
+
+//link_toの色
+a {
+  color:black;
+  text-decoration:none !important;
+  }
+
+a:hover {/*マウスが上に乗っている状態*/
+color: #A19994;
+}
+
+//ボタン
+.btn-border-bottom {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0;
+  text-decoration: none;
+  color: #535454;  //#67c5ff
+}
+
+.btn-border-bottom:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top:100%;
+  left: 0;
+  border-radius: 3px;
+  background:#535454; //#67c5ff
+  transition: .2s;
+}
+
+.btn-border-bottom:hover:before {
+  top: -webkit-calc(100% - 3px);
+  top: calc(100% - 3px);
+}
+
+//
+.btn-flat-dashed-border {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: dashed 1px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-flat-dashed-border:hover {
+  border-style: dotted;
+  color: #679efd;
+}
+
 //見出し
 
 h1 {
@@ -45,7 +130,7 @@ h1:after {
 .hr {
   height: 10px;
   border: 0;
-  box-shadow: 0 10px 10px -10px #bbb inset;
+  box-shadow: 0 10px 10px -10px #535454 inset; //#bbb
 }
 
 
@@ -59,7 +144,7 @@ h1:after {
   max-width: 100%;
   color: #555;
   font-size: 16px;
-  background: #e0edff;
+  background: #FFD2B8; //#e0edf
   border-radius: 5px;
 }
 
@@ -118,7 +203,7 @@ body
 .menu {
 
   font-weight: 100;
-  background: #efefef;
+  background: whitesmoke; //#efefef  #535454
   width: 200px;
   height: 100%;
   padding-left: 85px;
@@ -128,7 +213,7 @@ body
   box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
   right: -130px;
   @include all-transition(0.3s);
-  color: #222;
+  color: black; //#222
 
   &:hover, &:focus
   {
@@ -141,7 +226,7 @@ body
     @include vertical-align(absolute);
     transform: rotate(270deg);
     left: 10px;
-    font-weight: 800;
+    font-weight: 500;
     font-size: 15px;
 
   }
@@ -164,7 +249,7 @@ body
 
           &:hover
           {
-            color: #aaa;
+            color: #FFD2B8; //#aaa
           }
         }
     }
