@@ -3,9 +3,10 @@ class HorseDiariesController < ApplicationController
   before_action :authenticate_user!
   PER = 5
   def index 
-    @horse_diaries = HorseDiary.page(params[:page]).per(PER)
-    @q = HorseDiary.ransack(params[:q])
-    @horse_diaries = @q.result(distinct: true).page(params[:page]).per(PER)
+    @horse_diaries = current_user.horse_diaries.page(params[:page]).per(PER)
+    #@horse_diaries = HorseDiary.page(params[:page]).per(PER)
+    @search = @horse_diaries.ransack(params[:q])
+    @horse_diaries = @search.result(distinct: true).page(params[:page]).per(PER)
   end
 
   def show

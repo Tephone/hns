@@ -15,6 +15,31 @@
  *= require_self
  */
 
+//見出し
+
+h1 {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+}
+
+h1:before, h1:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 1px;
+  background-color: black;
+}
+
+h1:before {
+  left:0;
+}
+h1:after {
+  right: 0;
+}
+
 //区切り線
 
 .hr {
