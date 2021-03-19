@@ -9,10 +9,10 @@
 <% end %>
 <% @horse_diaries.each do |diary|%>
 <%# binding.irb %>
-  <div class = "balloon1" >
-    <% if diary.content.length >= 10 %>
+  <div class = "box11" >
+    <% if diary.content.length >= 25 %>
       <% text = diary.content %>
-      <% text = text.slice(0..10) %>
+      <% text = text.slice(0..25) %>
       <% text += "..." %>
       <%= link_to (text), horse_diary_path(diary.id) %>
     <% else %> 

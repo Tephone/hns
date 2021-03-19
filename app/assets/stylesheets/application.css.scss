@@ -18,7 +18,7 @@
 //文字の色
 
 
-//body全体
+//body全体(applications)
 .bkg_color{
   background-color: whitesmoke;
   z-index: 0;
@@ -100,6 +100,26 @@ color: #A19994;
   color: #679efd;
 }
 
+//お気に入りボタン
+.btn-circle-border-double {
+  display: inline-block;
+  text-decoration: none;
+  color: #535454;
+  width: 50px;
+  height: 50px;
+  line-height: 40px;
+  border-radius: 50%;
+  border: double 4px #535454;
+  text-align: center;
+  overflow: hidden;
+  transition: .6s;
+}
+
+.btn-circle-border-double:hover {
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+
 //見出し
 
 h1 {
@@ -176,6 +196,51 @@ h1:after {
   padding: 0;
 }
 
+//
+
+.box11{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #535454;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box11 p {
+    margin: 0; 
+    padding: 0;
+}
+
+//
+.box12{
+  padding: 0.5em 0.1em;
+  margin: 1em 0;
+  color: #5989cf;
+  background: #FFD2B8;
+  border-bottom: solid 6px #e0bca7; //#cf9c7e
+  border-radius: 10px;
+  
+}
+.box12 p {
+  margin: 0; 
+  padding: 0;
+}
+//
+
+.box13 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #FFF;
+  background: #FFD2B8;
+  border-bottom: solid 6px #dbae94;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+}
+.box13 p {
+  margin: 0; 
+  padding: 0;
+}
+
 //ページネーション
 .pagination {
   justify-content: center;
@@ -222,14 +287,19 @@ body
   }
   .title
   {
-    top:50%;
     @include vertical-align(absolute);
+    top: 47%;
     transform: rotate(270deg);
     left: 10px;
     font-weight: 500;
     font-size: 15px;
 
   }
+
+  .menu .title {
+    text-align: center !important;
+  }
+
   .nav
   {
     @include vertical-align(absolute);
