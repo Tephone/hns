@@ -12,8 +12,4 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
   end
   it 'お気に入り一覧機能' do
   end
-  it '自身の投稿一覧機能' do
-  end
-  it '自身の投稿画像一覧機能' do
-  end
 end
