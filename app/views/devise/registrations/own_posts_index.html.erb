@@ -1,5 +1,6 @@
 <p>自身の投稿一覧</p>
 <% @posts.each do |post|%>
-  <%= image_tag(post.image.url) if post.image.present?%>
-  <%= post.content%>
+  <%= image_tag(post.image.url) if post.image.present?%><br>
+  <%= post.content%><br>
+  <p class = "hr"></p>
 <% end %>

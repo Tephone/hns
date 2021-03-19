@@ -1,15 +1,29 @@
 <br>
-<%= link_to '新しく投稿する', new_horse_diary_path%><br>
-<%= search_form_for @q do |f| %>
-  <%= f.label :content, "Keyword" %><br>
+<%= link_to '日記を書く', new_horse_diary_path, class: 'btn-border-bottom'%><br>
+
+<%= search_form_for @search do |f| %>
+  <%#= f.label :content, "Keyword" %><br>
   <%= f.search_field :content_cont %>
 
-  <%= f.submit "検索" %>
+  <%= f.submit "🔎" %>
 <% end %>
 <% @horse_diaries.each do |diary|%>
-  <%= diary.content%><br>
-  <%= link_to '詳細', horse_diary_path(diary.id) %>
-  <%= link_to '編集', edit_horse_diary_path(diary.id) %>
-  <%= link_to '削除', horse_diary_path(diary.id), method: :delete, data: {confirm: '投稿を削除してもよろしいでしょうか？'} %><br>
+<%# binding.irb %>
+  <div class = "box11" >
+    <% if diary.content.length >= 25 %>
+      <% text = diary.content %>
+      <% text = text.slice(0..25) %>
+      <% text += "..." %>
+      <%= link_to (text), horse_diary_path(diary.id) %>
+    <% else %> 
+      <%= link_to (diary.content), horse_diary_path(diary.id) %>
+    <% end %>
+  </div>
+  <br>
+  <%#= link_to '詳細', horse_diary_path(diary.id) %>
+  <%#= link_to '編集', edit_horse_diary_path(diary.id) %>
+  <%#= link_to '削除', horse_diary_path(diary.id), method: :delete, data: {confirm: '投稿を削除してもよろしいでしょうか？'} %>
 <%end%>
-<%= paginate @horse_diaries %>
+<div class = 'pagination' >
+      <%= paginate @horse_diaries %>
+</div>

@@ -3,16 +3,21 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  # layout "sessions"
+
   def new_guest
+    # render layout: "application"
+    # binding.pry
     user = User.guest
-    sign_in user
+    sign_in user, method: :post
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    binding.pry
+    super
+  end
 
   # POST /resource/sign_in
   # def create

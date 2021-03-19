@@ -1,2 +1,7 @@
 <br>
-<%= @horse_diary.content%>
+<%= safe_join(@horse_diary.content.split("\n"),tag(:br))%><br>
+<br>
+<%= link_to '編集', edit_horse_diary_path(@horse_diary.id) %>
+<%= link_to '削除', horse_diary_path(@horse_diary.id), method: :delete, data: {confirm: '投稿を削除してもよろしいでしょうか？'} %><br>
+<br>
+<%= link_to '戻る', horse_diaries_path%>
