@@ -15,23 +15,21 @@
 
 <% unless current_user == @post.user %>
   <% if @favorite.present? %>
-    <%= link_to '💓', favorite_path(id: @favorite.id), method: :delete, class: "btn-circle-border-double" %>
+    <%= link_to '❤︎', favorite_path(id: @favorite.id), method: :delete, class: "btn-circle-border-double" %>
   <% else %>
-    <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post %>
+    <%= link_to '♡', favorites_path(post_id: @post.id), method: :post, class: "btn-circle-border-double" %>
   <% end %>
 <% end %>
 <br>
 
-<div class="container">
-  <p id="notice"><%= notice %></p>
-  </div>
-  <p class = 'btn-border-bottom'>コメント一覧</p>
-  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
-  <div id="comments_area">
-    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-    <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
-  </div>
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %><br>
-  <%= link_to '戻る', posts_path %>
+<!--<p id="notice"><%= notice %></p>-->
+<p class = 'btn-border-bottom'>コメント一覧</p>
+<!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+<div id="comments_area">
+  <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
 </div>
+<!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+<%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %><br>
+<%= link_to '戻る', posts_path %>
+

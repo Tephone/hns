@@ -4,5 +4,6 @@
   <p><%= favorite.post.user.name %>さんの投稿<br></p><br>
   <%= image_tag(favorite.post.image.url) if favorite.post.image.present? %><br>
   <%= favorite.post.content %>
+  <p class = "hr"></p>
 <% end %>
 
