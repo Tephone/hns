@@ -2,6 +2,7 @@ require 'rails_helper'
 RSpec.describe 'whisper（SNS）関連機能', type: :system do
   before do
     user = FactoryBot.create(:user)
+    user2 = FactoryBot.create(:user2)
     @post = FactoryBot.create(:post, user_id: user.id)
     @comment = FactoryBot.create(:comment, user_id: user.id, post_id: @post.id)
   end
@@ -60,16 +61,14 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     accept_alert
     expect(page).to_not have_content 'comment1'
   end
-  it '投稿お気に入り機能' do
+  it '投稿お気に入り機能及びお気に入り一覧表示機能' do
     visit new_user_session_path
-    fill_in 'Eメール', with: 'one@example.com'
+    fill_in 'Eメール', with: 'two@example.com'
     fill_in 'パスワード', with: 'aaaaaa'
     click_on 'Log in'
-  end
-  it 'お気に入り一覧機能' do
-    visit new_user_session_path
-    fill_in 'Eメール', with: 'one@example.com'
-    fill_in 'パスワード', with: 'aaaaaa'
-    click_on 'Log in'
+    click_on 'test1'
+    click_on '♡'
+    users_favorites_path
+    expect(page).to have_content 'test1'
   end
 end
