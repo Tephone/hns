@@ -11,6 +11,11 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     fill_in 'Eメール', with: 'one@example.com'
     fill_in 'パスワード', with: 'aaaaaa'
     click_on 'Log in'
+    click_on '新しく投稿する'
+    find('textarea#post_content').set('test2')
+    attach_file 'post[image]', "#{Rails.root}/spec/factories/perry_s.jpg"
+    click_on '登録する'
+    expect(page).to have_content 'test2'
   end
   it '投稿編集機能' do
     visit new_user_session_path
@@ -33,7 +38,6 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     find('.first_delete').click
     accept_alert
     expect(page).to_not have_content('test1')
-
   end
   it 'コメント投稿機能' do
     visit new_user_session_path
