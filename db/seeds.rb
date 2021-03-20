@@ -10,12 +10,10 @@
   User.create!(
     email: "hanako#{n + 1}@example.com",
     name: "hanako#{n + 1}",
-    password: "aaaaaa"
-    password_confirmation: "aaaaaa" )
+    password: "aaaaaa" )
   end
 
 User.all.each do |user|
   user.posts.create!(
-    content: 'お馬さんかわいい'
-  )
+    content: 'お馬さんかわいい' )
 end
