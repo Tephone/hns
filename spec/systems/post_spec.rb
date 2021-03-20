@@ -17,6 +17,12 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     fill_in 'Eメール', with: 'one@example.com'
     fill_in 'パスワード', with: 'aaaaaa'
     click_on 'Log in'
+    click_on 'test1'
+    #binding.pry
+    find('.first_edit').click
+    find('textarea#post_content').set('test1_edited')
+    click_on '更新する'
+    expect(page).to have_content 'test1_edited'
   end
   it '投稿削除機能' do
     visit new_user_session_path
