@@ -3,6 +3,7 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
   before do
     user = FactoryBot.create(:user)
     @post = FactoryBot.create(:post, user_id: user.id)
+    @comment = FactoryBot.create(:comment, user_id: user.id, post_id: @post.id)
   end
   it '文章及び画像投稿機能' do
     visit new_user_session_path
@@ -22,7 +23,7 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     fill_in 'パスワード', with: 'aaaaaa'
     click_on 'Log in'
     click_on 'test1'
-    click_on '削除'
+    find('.first_delete').click
     accept_alert
     expect(page).to_not have_content('test1')
 
@@ -33,9 +34,9 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     fill_in 'パスワード', with: 'aaaaaa'
     click_on 'Log in'
     click_on 'test1'
-    fill_in 'Content', with: 'comment'
+    fill_in 'Content', with: 'comment2'
     click_on '登録する'
-    expect(page).to have_content 'comment'
+    expect(page).to have_content 'comment2'
   end
   it 'コメント編集機能' do
     visit new_user_session_path
