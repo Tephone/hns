@@ -55,7 +55,10 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     fill_in 'Eメール', with: 'one@example.com'
     fill_in 'パスワード', with: 'aaaaaa'
     click_on 'Log in'
-    
+    click_on 'test1'
+    find('.second_delete').click
+    accept_alert
+    expect(page).to_not have_content 'comment1'
   end
   it '投稿お気に入り機能' do
     visit new_user_session_path
