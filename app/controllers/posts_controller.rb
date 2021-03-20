@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: '投稿しました！'
     else
+      #binding.pry
       render :new
     end
   end
