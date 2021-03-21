@@ -21,8 +21,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    super
-    # render layout: "sessions"
+    # if @user.errors.present? 
+    # #   render :new
+    # # else
+        super
   end
 
   # POST /resource

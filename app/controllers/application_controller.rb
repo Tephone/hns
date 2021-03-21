@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
 
     if action_name == "new" && devise_controller?
       "sessions"
+    elsif devise_controller? && @user.errors.present? 
+      "sessions"
     else
       "application"
     end

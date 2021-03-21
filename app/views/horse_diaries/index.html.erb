@@ -22,7 +22,7 @@
   <br>
   <%#= link_to '詳細', horse_diary_path(diary.id) %>
   <%#= link_to '編集', edit_horse_diary_path(diary.id) %>
-  <%#= link_to '削除', horse_diary_path(diary.id), method: :delete, data: {confirm: '投稿を削除してもよろしいでしょうか？'} %>
+  <%= link_to '削除', horse_diary_path(diary.id), method: :delete, data: {confirm: '投稿を削除してもよろしいでしょうか？'} %>
 <%end%>
 <div class = 'pagination' >
       <%= paginate @horse_diaries %>
