@@ -8,6 +8,5 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(id: params[:id])
     favorite.destroy
     redirect_to post_path(favorite.post_id), notice: 'お気に入りを解除しました'
-    #redirect_to posts_path, notice: 'お気に入りを解除しました'
   end
 end

@@ -1,14 +1,11 @@
 <br>
 <%= link_to '日記を書く', new_horse_diary_path, class: 'btn-border-bottom'%><br>
-
+<br>
 <%= search_form_for @search do |f| %>
-  <%#= f.label :content, "Keyword" %><br>
   <%= f.search_field :content_cont %>
-
   <%= f.submit "search" %>
 <% end %>
 <% @horse_diaries.each do |diary|%>
-<%# binding.irb %>
   <div class = "box11" >
     <% if diary.content.length >= 25 %>
       <% text = diary.content %>

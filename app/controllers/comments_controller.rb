@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(permitted_parameter)
     respond_to do |format|
       if @comment.save
-        # format.html { redirect_to post_path(@post) }
         format.js { render :index }
       else
         format.html { redirect_to post_path(@post), notice: '投稿できませんでした...' }
@@ -46,6 +45,7 @@ class CommentsController < ApplicationController
   def which_post?
     @post = Post.find(params[:post_id])
   end
+  
   def permitted_parameter
     params.require(:comment).permit(:post_id, :content).merge(user_id: current_user.id)
   end

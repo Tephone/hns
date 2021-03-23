@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :which_post?, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! #, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!
   before_action :can_do_only_by_myself, only: [:edit, :update, :destroy]
  
   def index
@@ -24,7 +24,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: '投稿しました！'
     else
-      #binding.pry
       render :new
     end
   end

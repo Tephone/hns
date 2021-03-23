@@ -24,12 +24,9 @@
 
 <!--<p id="notice"><%= notice %></p>-->
 <p class = 'btn-border-bottom'>コメント一覧</p>
-<!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
 <div id="comments_area">
-  <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
   <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
 </div>
-<!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
 <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %><br>
 <%= link_to '戻る', posts_path %>
 

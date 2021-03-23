@@ -2,9 +2,9 @@ class HorseDiariesController < ApplicationController
   before_action :which_horse_diary?, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   PER = 5
+
   def index 
     @horse_diaries = current_user.horse_diaries.page(params[:page]).per(PER)
-    #@horse_diaries = HorseDiary.page(params[:page]).per(PER)
     @search = @horse_diaries.ransack(params[:q])
     @horse_diaries = @search.result(distinct: true).page(params[:page]).per(PER)
   end
@@ -45,6 +45,7 @@ class HorseDiariesController < ApplicationController
   def which_horse_diary?
     @horse_diary = HorseDiary.find(params[:id])
   end
+  
   def permitted_parameter
     params.require(:horse_diary).permit(:content, :user_id)
   end
