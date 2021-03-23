@@ -3,7 +3,7 @@
 
   <% @posts.each do |post| %>
     <div rows: 12>
-      <p><%= link_to (post.content), post_path(post.id) %><br></p>
+      <p><%= link_to safe_join(post.content.split("\n"),tag(:br)), post_path(post.id) %><br></p>
       <% if post.image.present? %>
         <p><%= image_tag post.image.url, class: "img-fluid" %></p><br>
       <% end %>
