@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :can_do_only_by_myself, only: [:edit, :update, :destroy]
  
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: :desc)
   end
 
   def show
