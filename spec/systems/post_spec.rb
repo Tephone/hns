@@ -23,7 +23,6 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     fill_in 'パスワード', with: 'aaaaaa'
     click_on 'Log in'
     click_on 'test1'
-    #binding.pry
     find('.first_edit').click
     find('textarea#post_content').set('test1_edited')
     click_on '更新する'
@@ -55,7 +54,6 @@ RSpec.describe 'whisper（SNS）関連機能', type: :system do
     fill_in 'パスワード', with: 'aaaaaa'
     click_on 'Log in'
     click_on 'test1'
-    #binding.pry
     find('.second_edit').click
     fill_in 'Content', with: 'comment1_edited'
     click_on '登録する'

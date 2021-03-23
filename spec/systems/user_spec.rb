@@ -12,7 +12,6 @@ RSpec.describe 'user関連機能', type: :system do
       fill_in 'パスワード（確認用）', with: 'aaaaaa'
       click_on 'Sign up'
       expect(page).to have_content '新しく投稿する'
-
     end
     it 'ログイン機能' do
       visit new_user_session_path
