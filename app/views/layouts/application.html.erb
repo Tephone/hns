@@ -13,7 +13,8 @@
     <div class="menu">
       <div class="title">MENU</div>
       <ul class="nav">
-        <li><%= link_to 'My page', edit_user_registration_path(current_user.id) %></li>
+        <li><%= link_to '皆さまへ', overviews_index_path %></li>
+        <li><%= link_to 'マイページ', edit_user_registration_path(current_user.id) %></li>
         <li><%= link_to 'Whisper', posts_path %></li>
         <li><%= link_to '乗馬日記', horse_diaries_path %></li>
       </ul>
